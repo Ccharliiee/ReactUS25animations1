@@ -1,18 +1,11 @@
 import React from "react";
-import { Transition } from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 
 import "./Modal.css";
 
 const modal = (props) => {
-  const transitionStyles = {
-    entering: "ModalOpen",
-    entered: null,
-    exiting: "ModalClosed",
-    exited: null,
-  };
-
   return (
-    <Transition
+    <CSSTransition
       in={props.show}
       timeout={{ enter: 500, exit: 400 }}
       mountOnEnter
@@ -23,11 +16,11 @@ const modal = (props) => {
       onExit={() => console.log("onExit")}
       onExiting={() => console.log("onExiting")}
       onExited={() => console.log("onExited")}
+      classNames="Modal"
     >
       {(state) => {
-        const cssClasses = ["Modal", transitionStyles[state]];
         return (
-          <div className={cssClasses.join(" ")}>
+          <div className="Modal">
             <h1>A Modal</h1>
             <button className="Button" onClick={props.closed}>
               Dismiss
@@ -35,7 +28,7 @@ const modal = (props) => {
           </div>
         );
       }}
-    </Transition>
+    </CSSTransition>
   );
 };
 
