@@ -16,7 +16,7 @@ const modal = (props) => {
       onExit={() => console.log("onExit")}
       onExiting={() => console.log("onExiting")}
       onExited={() => console.log("onExited")}
-      classNames="Modal"
+      classNames={{ enterActive: "ModalOpen", exitActive: "ModalClosed" }}
     >
       {(state) => {
         return (
