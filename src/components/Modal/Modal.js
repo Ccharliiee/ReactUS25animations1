@@ -12,7 +12,12 @@ const modal = (props) => {
   };
 
   return (
-    <Transition in={props.show} timeout={500} mountOnEnter unmountOnExit>
+    <Transition
+      in={props.show}
+      timeout={{ enter: 500, exit: 400 }}
+      mountOnEnter
+      unmountOnExit
+    >
       {(state) => {
         const cssClasses = ["Modal", transitionStyles[state]];
         return (
